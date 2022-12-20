@@ -5,6 +5,7 @@ import UserContext from "../Contexts/UserContext";
 import Footer from "./Footer";
 import Header from "./Header";
 import { Caption, HabitStyle, Main, NewHabitButtons, Title, WeeksDays } from "./Styles";
+import { ThreeDots } from 'react-loader-spinner';
 
 export default function Habits() {
     const { user } = useContext(UserContext);
@@ -98,7 +99,20 @@ function NewHabit({weekDays, setNewHabit, habitsList, setHabitsList, config}) {
             </WeeksDays>
             <NewHabitButtons>
                 <button data-test="habit-create-cancel-btn" className="cancel" onClick={() => setNewHabit(false)}>Cancelar</button>
-                <button data-test="habit-create-save-btn" className="save" onClick={() => SaveNewHabit()}>Salvar</button>
+                <button data-test="habit-create-save-btn" className="save" onClick={() => SaveNewHabit()}>
+                {!loading ? <>Salvar</> :
+                        <ThreeDots
+                        height="11"
+                        width="84"
+                        radius="9"
+                        color="white"
+                        ariaLabel="three-dots-loading"
+                        wrapperStyle={{}}
+                        wrapperClassName=""
+                        visible={true}
+                         />
+                    }
+                </button>
             </NewHabitButtons>
         </HabitStyle>
     );
