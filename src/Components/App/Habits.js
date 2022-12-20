@@ -95,11 +95,21 @@ function NewHabit({weekDays, setNewHabit, habitsList, setHabitsList, config}) {
         <HabitStyle direction="Column" data-test="habit-create-container">
             <input data-test="habit-name-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Nome do hábito" disabled={loading} />
             <WeeksDays>
-                {weekDays.map((d, i) => <button key={i} className={days.includes(i) ? "selected" : ''} onClick={() => setDays([...days, i])} disabled={loading} data-test="habit-day">{d}</button>)}
+                {weekDays.map((d, i) => <button key={i} className={days.includes(i) ? "selected" : ''}
+                    onClick={() => {
+                        if (days.includes(i))
+                        {
+                            setDays(days.filter(day => {
+                                if (day !== i) return day;
+                            }))
+                        }
+                        else setDays([...days, i]);
+                    }}
+                    disabled={loading} data-test="habit-day">{d}</button>)}
             </WeeksDays>
             <NewHabitButtons>
-                <button data-test="habit-create-cancel-btn" className="cancel" onClick={() => setNewHabit(false)}>Cancelar</button>
-                <button data-test="habit-create-save-btn" className="save" onClick={() => SaveNewHabit()}>
+                <button data-test="habit-create-cancel-btn" className="cancel" onClick={() => setNewHabit(false)} disabled={loading} >Cancelar</button>
+                <button data-test="habit-create-save-btn" className="save" onClick={() => SaveNewHabit()} disabled={loading} >
                 {!loading ? <>Salvar</> :
                         <ThreeDots
                         height="11"
