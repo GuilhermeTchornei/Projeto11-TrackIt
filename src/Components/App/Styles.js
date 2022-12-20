@@ -78,10 +78,6 @@ export const HabitStyle = styled.div`
     margin-bottom: 10px;
     position: relative;
 
-    div{
-
-    }
-
     h1{
         font-size: 20px;
         color: #666666;
@@ -169,6 +165,11 @@ export const FooterStyle = styled.footer`
 
     font-size: 18px;
     color: #52B6FF;
+
+    a{
+        text-decoration: none;
+        color: #52B6FF;
+    }
 
     div{
         width: 91px;

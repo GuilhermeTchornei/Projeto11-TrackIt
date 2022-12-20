@@ -32,13 +32,13 @@ export default function Register() {
         <HomeStyle>
             <img src={homeIcon} />
             <form onSubmit={Login} disabled={loading}>
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="email" required />
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="senha" required disabled={loading} />
-                <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="nome" required disabled={loading} />
-                <input type="url" value={image} onChange={e => setImage(e.target.value)} placeholder="foto" required disabled={loading} />
-                <button type="submit" disabled={loading}>Cadastrar</button>
+                <input data-test="email-input" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="email" required />
+                <input data-test="password-input" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="senha" required disabled={loading} />
+                <input data-test="user-name-input" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="nome" required disabled={loading} />
+                <input data-test="user-image-input" type="url" value={image} onChange={e => setImage(e.target.value)} placeholder="foto" required disabled={loading} />
+                <button data-test="signup-btn" type="submit" disabled={loading}>Cadastrar</button>
             </form>
-            <Link to="/">Já tem uma conta? Faça login!</Link>
+            <Link to="/" data-test="login-link" >Já tem uma conta? Faça login!</Link>
         </HomeStyle>
     );
 }

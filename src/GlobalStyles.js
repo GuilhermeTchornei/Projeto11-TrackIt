@@ -19,6 +19,9 @@ const GlobalStyles = createGlobalStyle`
             color: #DBDBDB;
         }
     }
+    .green{
+        color: #8FC549;
+    }
 `;
 
 export default GlobalStyles;
